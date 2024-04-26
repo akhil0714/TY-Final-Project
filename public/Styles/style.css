@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+
+
+.cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:25px;
+  min-height: 100vh;
+  background: rgb(2, 86, 116);
+}
+.inputBox h6{
+  margin-top: 8px !important;
+  font-size: 16px;
+}
+.payment_method{
+  display: flex;
+  justify-content:space-evenly;
+  height: 10vh;
+  align-items: center;
+  width: 100%;
+
+}
+.payment_method div , input{
+  cursor: pointer;
+}
+#upiScanner img{
+  width: 320px;
+  height: 400px;
+}
+.close  {
+  font-size: 32px;
+  position: absolute;
+  right: 5%;
+  color: #fff !important;
+  cursor: pointer;
+}
+.pay_button{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.cont form{
+  padding:20px;
+  width:700px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+.cont form .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+}
+
+.cont form .row .col{
+  flex:1 1 250px;
+}
+
+.cont form .row .col .title{
+  font-size: 20px;
+  color:#333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.cont form .row .col .inputBox{
+  margin:15px 0;
+}
+
+.cont form .row .col .inputBox span{
+  margin-bottom: 10px;
+  display: block;
+}
+
+.cont form .row .col .inputBox input{
+  width: 100%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.cont form .row .col .inputBox input:focus{
+  border:1px solid #000;
+}
+
+.cont form .row .col .flex{
+  display: flex;
+  gap:15px;
+}
+
+.cont form .row .col .flex .inputBox{
+  margin-top: 5px;
+}
+
+.cont form .row .col .inputBox img{
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.cont form .submit-btn{
+  width: 100%;
+  padding:12px;
+  font-size: 17px;
+  background: rgb(2, 86, 116);
+  color:#fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.cont form .submit-btn:hover{
+  background: rgb(1, 100, 139);
+}

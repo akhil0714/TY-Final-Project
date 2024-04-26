@@ -1,0 +1,45 @@
+<%- include("../partials/navbar.ejs") %>
+
+<main class="mt-5 pt-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 fw-bold fs-3 mt-2 text-center">Dashboard</div>
+        </div>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Message</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% query.forEach(function(queries , index) { %>
+                    <tr>
+                        <th scope="row">
+                            <%= index+1 %>
+                        </th>
+                        <td>
+                            <%= queries.full_name %>
+                        </td>
+                        <td>
+                            <%= queries.number %>
+                        </td>
+                        <td>
+                            <%= queries.query %>
+                        </td>
+                        <td>
+                            <a href="/query/delete/<%= queries._id %>" class="btn btn-danger">DELETE</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+          </table>
+    </div>
+</main>
+
+    <%- include("../partials/script.ejs") %>
+
+    

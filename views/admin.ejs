@@ -1,0 +1,93 @@
+<%- include("../partials/navbar.ejs") %>
+
+    <!-- ############################################################################################################################################################ -->
+
+    <main class="mt-5 pt-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 fw-bold fs-3 text-center mt-2">Dashboard</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 m-auto">
+                    <div class="card text-bg-secondary mb-3 text-center" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text fw-bold fs-2">
+                                <%= totalSales %>
+                            </p>
+                            <hr>
+                            <h5 class="card-title">Total Revenue</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-auto">
+                    <div class="card text-bg-success mb-3 text-center" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text fw-bold fs-2">
+                                <%= pending.length %>
+
+                            </p>
+                            <hr>
+                            <h5 class="card-title">Pending Orders</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-auto">
+                    <div class="card text-bg-primary mb-3 text-center" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text fw-bold fs-2">
+                                <%= weeklyRevenue %>
+                            </p>
+                            <hr>
+                            <h5 class="card-title">weekly Sales</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+       
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">Data Table</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Payment Mode</th>
+                                    <th scope="col">Order</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% Order.forEach(function (order,index) {%>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= index + 1 %>
+                                        </th>
+                                        <td>
+                                            <%= order.billingAddress.fullName %>
+                                        </td>
+                                        <td>
+                                            <%= order.billingAddress.email %>
+                                        </td>
+                                        <td>
+                                            <%= order.totalAmount %>
+                                        </td>
+                                        <td>
+                                            <%= order.payment.method %>
+                                        </td>
+                                        <td>
+                                            <%= order.status %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include("../partials/script.ejs") %>

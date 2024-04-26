@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tag -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- bootstrap icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Font Awesome icon cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/Styles/index.css">
+  <link rel="stylesheet" href="/Styles/footer.css">
+  <title>DG CASHEW</title>
+</head>
+
+<body>
+  <!-- ################################### NAVBAR START ############################################### -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="background: rgb(2, 86, 116);">
+    <div class="container">
+      <a class="navbar-brand" href="/"><img class="logo" src="./Images/logo.jpg"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/" active>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about_us">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#product">Store</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact_us">Contact</a>
+          </li>
+          <li class="nav-item header-user-actions">
+            <a href="/cart"><i class="sym bi bi-cart4 fs-3 ms-3"></i></a>
+            <span class="cart-count" id="cart-count">0</span>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <% if (locals.user) { %>
+            <a href="/logout" class="btn btn-light px-3 ms-5 my-3 align-text-middle">LOGOUT</a>
+
+            <% } else { %>
+              <a href="/login" class="btn btn-light px-3 ms-5 my-3 align-text-middle">LOGIN</a>
+              <% } %>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- ####################################### NAVBAR END ############################################## -->
+  <!-- ################################### HOMEPAGE IMG START ########################################## -->
+  <section class="main">
+    <div class="container py-5">
+      <div class="row py-4">
+        <div class="col-lg-3 pt-5 text-center">
+          <h4>Fresh Dry fruits</h4>
+          <a href="#product" class="btn btn-light text-light mt-3 align-middle"
+            style="background-color: rgb(2, 86, 116); border-radius: 30px; padding: 10px;">SHOP NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ####################################### HOMEPAGE IMG END ######################################## -->
+  <!-- ######################################## ABOUT US START ######################################### -->
+  <section class="about" id="about_us">
+    <div class="container py-5">
+      <div class="row py-5">
+        <div class="col-lg-8 m-auto text-center" style="color: rgb(2, 86, 116);">
+          <h1> Welcome To Our DG Cashew Online Store </h1>
+          <H4>HEALTHY DRY FRUITS</H4>
+        </div>
+        <div class="row">
+
+          <div class="col-lg-4">
+            <img src="./Images/l-background.jpg" class="img-fluid mb-3" alt="">
+            <h5>Best Quality Product</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolorum accusamus, obcaecati fugiat
+              distinctio repellendus saepe delectus praesentium sequi quas?</p>
+          </div>
+
+          <div class="col-lg-4">
+            <img src="./Images/banner2.jpg" class="img-fluid mb-3" alt="">
+            <h5>Best Quality Product</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolorum accusamus, obcaecati fugiat
+              distinctio repellendus saepe delectus praesentium sequi quas?</p>
+          </div>
+
+          <div class="col-lg-4">
+            <img src="./Images/blogbanner02.jpeg" class="img-fluid mb-3" alt="">
+            <h5>Best Quality Product</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolorum accusamus, obcaecati fugiat
+              distinctio repellendus saepe delectus praesentium sequi quas?</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ####################################### ABOUT US END ########################################### -->
+  <!-- ####################################### STORE START ############################################ -->
+ 
+
+
+      <!-- Summary -->
+    
+
+ <section class="store" id="product">
+    <div class="container py-5">
+      <div class="row py-5">
+        <div class="col-lg-5 m-auto text-center" style="color: rgb(2, 86, 116);">
+          <h1>EXPLORE OUR STORE</h1>
+          <h4>HEALTHY DRY FRUITS</h4>
+        </div>
+      </div>
+      <div class="row">
+        <% products.forEach(product => { %>
+          <div class="col-lg-3 text-center">
+            <div class="card border-0 bg-light mb-3">
+              <div class="card-body">
+                <img src="<%= product.image %>" class="img-fluid" alt="">
+              </div>
+            </div>
+            <h3>
+              <%= product.name %>
+            </h3>
+            <p>Rs <%= product.amount %>/-</p>
+            <button onclick="addToCart(<%= JSON.stringify(product) %>)" class="btn btn-dark py-2 px-5 mb-5 rounded" style="background-color: rgb(2, 86, 116);">Add to Cart</button>
+
+
+
+          </div>
+          <% }) %>
+      </div>
+    </div>
+  </section> 
+
+  <!-- ######################################### STORE END ############################################# -->
+  <hr class="hr">
+  <!-- ####################################### CONTACT START ########################################### -->
+  <section class="contact py-5" id="contact_us">
+    <div class="container py-5" style="height: 100%;">
+      <div class="row">
+        <div class="col-lg-5 mb-5 m-auto text-center" style="color: rgb(2, 86, 116)">
+          <h1>CONTACT US</h1>
+          <h5>Always be in touch with us</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 m-auto">
+          <div class="row " style="color: rgb(2, 86, 116);">
+            <div class="col-lg-4 mb-3">
+              <h3><i class="bi bi-geo-alt-fill"></i></h3>
+              <p>Shop No.14, Sea Crown Building, Near Milan Sweets, Charkop Sector-8, Kandivali West, Mumbai,
+                Maharashtra-400067</p>
+              <h3><i class="bi bi-telephone-fill"></i></h3>
+              <span>+91 8976659988</span><br>
+              <span>+91 8433822411</span><br><br>
+              <h3><i class="bi bi-envelope-at-fill"></i></h3>
+              <span>dgcashewtraders@gmail.com</span>
+            </div>
+            <div class="col-lg-7">
+              <form action="/createQuery" method="post"> 
+              <div class="row">
+                <div class="col-lg-6">
+                  <input type="text" name="full_name" class="form-control bg-light mt-3 " placeholder="Full Name" style="color: black;">
+                </div>
+                <div class="col-lg-6">
+                  <input type="tel" name="number" class="form-control bg-light mt-3" placeholder="Mobile No." style="color: black;">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 py-3">
+                  <textarea name="query" class="form-control bg-light" placeholder="Write Message Here..." id=""
+                    style="width: 90.4%; height: 250px; color: black;"></textarea>
+                </div>
+              </div>
+              <button class="btn1 mb-5">Submit</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ########################################## CONTACT ENDED ######################################### -->
+  <!-- ########################################## footer start ########################################## -->
+  <footer class="footer">
+    <div class="foot-container">
+      <div class="foot-row">
+        <div class="footer-col">
+          <h4>CUSTOMER CARE</h4>
+          <ul>
+            <li><a href="/">Our services</a></li>
+            <li><a href="/">Terms and Conditions</a></li>
+            <li><a href="/">Bulk Order</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>FAQ"s</h4>
+          <li><a href="/">No E-Charges</a></li>
+          <li><a href="/">Shopping & Delivery</a></li>
+          <li><a href="/">Always Care</a></li>
+          <li><a href="#about_us">About Us</a></li>
+        </div>
+        <div class="footer-col">
+          <h4>Location</h4>
+          <ul>
+            <li><iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.5285149303604!2d72.81701917466863!3d19.215784847570365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b79e893734df%3A0x39419900d5e49798!2sDG%20Cashew%20Traders!5e0!3m2!1sen!2sin!4v1708527376452!5m2!1sen!2sin"
+                width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Social Media</h4>
+          <div class="social-links">
+            <a href="https://wa.me/p/5716250431821968/918433822411" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/dgcashewtraders?igsh=YnpqZDh2Mm91NXZx" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mb-0">© 2020-2024, DG Cashew, Inc. or its affiliates</p>
+  </footer>
+  <!-- ####################################### footer ended ############################################ -->
+  <!-- bootstrap javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <!-- <script src="/Javascript/cart.js"></script> -->
+    <script type="module" src="../models/product.js"></script>
+</body>
+<script>
+  // Calculate and display total price
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Check if quantity property exists for each product, if not, set it to 1
+  cart.forEach(product => {
+    if (!product.quantity || isNaN(product.quantity)) {
+      product.quantity = 1;
+    }
+  });
+  
+  // Get the container element
+  const cartItemsContainer = document.getElementById('cartItems');
+  
+  // Render each product in the cart
+  function renderCart() {
+    updateCartCount()
+    
+    cartItemsContainer.innerHTML = ''; // Clear existing items
+  
+    cart.forEach(product => {
+      // Create container for product details
+      const productCard = document.createElement('div');
+      productCard.classList.add('product-card');
+  
+      // Product image
+      const productImage = document.createElement('img');
+      productImage.src = product.image;
+      productImage.alt = product.name;
+      productImage.classList.add('product-image');
+      productCard.appendChild(productImage);
+  
+      // Product name
+      const productName = document.createElement('h3');
+      productName.textContent = product.name;
+      productCard.appendChild(productName);
+  
+      // Product price
+      const productPrice = document.createElement('p');
+      productPrice.classList.add('cart-product-price');
+      productPrice.textContent = `Price: Rs ${product.amount}/-`;
+      productCard.appendChild(productPrice);
+  
+      // Quantity display and controls
+      const quantityControls = document.createElement('div');
+      quantityControls.classList.add('quantity-controls');
+  
+      // Decrease quantity button
+      const decreaseButton = document.createElement('button');
+      decreaseButton.textContent = '-';
+      decreaseButton.classList.add('quantity-button');
+      decreaseButton.addEventListener('click', () => decreaseQuantity(product._id));
+      quantityControls.appendChild(decreaseButton);
+  
+      // Display quantity
+      const quantityDisplay = document.createElement('span');
+      quantityDisplay.textContent = product.quantity;
+      quantityDisplay.classList.add('quantity-display');
+      quantityControls.appendChild(quantityDisplay);
+  
+      // Increase quantity button
+      const increaseButton = document.createElement('button');
+      increaseButton.textContent = '+';
+      increaseButton.classList.add('quantity-button');
+      increaseButton.addEventListener('click', () => increaseQuantity(product._id));
+      quantityControls.appendChild(increaseButton);
+  
+      // Delete button
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('delete-button');
+      deleteButton.addEventListener('click', () => deleteProduct(product._id));
+      quantityControls.appendChild(deleteButton);
+  
+      productCard.appendChild(quantityControls);
+  
+      // Append product card to container
+      cartItemsContainer.appendChild(productCard);
+    });
+    updateTotalPrice()  
+  }
+
+  
+  // Function to decrease quantity
+  function decreaseQuantity(productId) {
+    const index = cart.findIndex(product => product._id === productId);
+    if (index !== -1) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+      }
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+    updateTotalPrice();
+  }
+  
+  // Function to increase quantity
+  function increaseQuantity(productId) {
+    const index = cart.findIndex(product => product._id === productId);
+    if (index !== -1) {
+      cart[index].quantity++;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+    updateTotalPrice();
+  }
+  
+  // Function to update total price
+  function updateTotalPrice() {
+    const totalPriceElement = document.getElementById('total_price');
+    let totalPrice = 0;
+  
+    // Calculate the total price based on the quantity and price of each product
+    cart.forEach(product => {
+      totalPrice += product.amount * product.quantity;
+    });
+  
+    // Update the total price element
+    totalPriceElement.textContent = totalPrice;
+  }
+  
+  // Function to delete product from cart
+  function deleteProduct(productId) {
+    cart = cart.filter(product => product._id !== productId);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+    updateTotalPrice();
+  }
+  
+  // Function to add product to the cart
+  function addToCart(product) {
+    // Retrieve cart items from localStorage or initialize an empty array
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+    // Add the product to the cart
+    cart.push(product);
+  
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+  
+    // Update cart count
+    updateCartCount();
+  
+    // Redirect to cart page (if needed)
+  window.alert("Item added successful")
+  }
+  
+  // Initial rendering and updating cart count
+  renderCart();
+   // Render the cart items
+
+  // Function to update the cart count
+  function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+ 
+    cartCountElement.textContent = cart.length; // Update the cart count
+  }
+  
+
+  window.addEventListener('load', updateCartCount);
+</script>
+  
+</html>

@@ -1,0 +1,52 @@
+.logo {
+    width: 90px;
+    height: 55px;
+}
+
+body,
+button {
+    font-family: "Inter", sans-serif;
+}
+
+#offcanvasExample {
+    width: 200px;
+}
+
+@media (min-width: 992px) {
+
+    body{
+        overflow: auto !important;
+    }
+
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+
+    main{
+        margin-left: 200px;
+    }
+
+    #offcanvasExample {
+        transform: none;
+        visibility: visible !important;
+        top: 80px;
+        height: calc(100% - 56px);
+    }
+}
+
+
+.dropdown-line{
+    margin: 0;
+}
+
+.side-menu{
+    font-size: 20px;
+
+}
+
+.side-menu ul li:hover {
+    background: rgb(7, 58, 76);
+}
+ .text-name{
+    font-size: 16px;
+ }

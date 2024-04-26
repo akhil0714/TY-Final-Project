@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo{
+    width: 110px;
+    height: 65px;
+}
+
+.nav-link {
+    margin-right: 40px;
+    margin-left: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: initial;
+}
+
+.form-control {
+    height: 40px;
+    width: 80%;
+    border-radius: 5px;
+    outline: white;
+    border-color: black;
+    color: white;
+}
+
+.btn-search {
+    border-color: black;
+
+}
+
+.header-user-actions .sym{
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.cart-count{
+    position: relative;
+    background-color: red;
+    color: white;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 50%;
+    font-weight: 500;
+    top: -21px;
+    left: -15px;
+}
+
+.login {
+    padding: 0 20px 0 20px;
+    border-radius: 10px;
+}
+
+.main {
+    background: url(/Images/offer-banner.jpg)no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    height: 750px;
+}
+
+.main h4 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: black;
+    margin-top: 90px;
+    font-family: "Merriweather", serif;
+    text-transform: uppercase;
+}
+
+.btn1 {
+    height: 45px;
+    width: 170px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    background-color: rgb(2, 86, 116);
+    color: white;
+    font-weight: 700;
+    border-radius: 60px;
+}
+
+.btn1:hover {
+    background-color: rgb(5, 50, 63);
+    transition: 0.5s;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+.about img {
+    width: 500px;
+}
+
+.card:hover {
+    -webkit-box-shadow: -2px -1px 25px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px -1px 25px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px -1px 25px -4px rgba(0, 0, 0, 0.75);
+    transition: 0.5s;
+}
+
+.hr{
+    margin: 0;
+    border: 10px solid rgb(2, 86, 116);
+}

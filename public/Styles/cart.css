@@ -1,0 +1,141 @@
+/* CSS styles for the "Add to Cart" section */
+.card {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    width: 90vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.cart {
+    padding-right: 20px;
+    margin-bottom: 200px;
+    
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    width:80vw;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 200px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.product-info h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.product-info p {
+    margin: 0;
+    color: #666;
+}
+
+.summary {
+    padding-left: 20px;
+}
+
+.summary h5 {
+    margin-bottom: 15px;
+    color: rgb(6, 86, 108);
+}
+
+.row {
+ 
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+
+/* Add styles for buttons */
+.cart-item-buttons {
+    display: flex;
+    align-items: center;
+}
+
+
+.cart-item-buttons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.cart-item-buttons button:hover {
+    color: rgb(6, 86, 108);
+}
+
+.cart-item {
+    height: 30vh;
+    /* background-color: #dc3545 !important; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 40px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 100px; /* Adjust image size as needed */
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.cart-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333; /* Adjust font color as needed */
+}
+
+.cart-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #666; /* Adjust font color as needed */
+}
+
+.cart-item input[type="number"] {
+  width: auto;
+    margin-right: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc; /* Adjust border color as needed */
+    border-radius: 5px;
+}
+
+.cart-item-buttons button {
+    background-color: #ccc; /* Adjust button background color as needed */
+    color: #333; /* Adjust button text color as needed */
+    border: none;
+    padding: 8px 12px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-button{
+    color: #fff !important;
+    background-color: #dc3545 !important;
+}
+
