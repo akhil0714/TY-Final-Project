@@ -1,18 +1,17 @@
 <%- include("../partials/navbar.ejs") %>
 
     <!-- ############################################################################################################################################################ -->
-
     <main class="mt-5 pt-4">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12 fw-bold fs-3 text-center mt-2">Dashboard</div>
+                <div class="col-md-12 fw-bold fs-3 py-3 text-center mt-2">DASHBOARD</div>
             </div>
             <div class="row">
                 <div class="col-md-3 m-auto">
                     <div class="card text-bg-secondary mb-3 text-center" style="max-width: 18rem;">
                         <div class="card-body">
                             <p class="card-text fw-bold fs-2">
-                                <%= totalSales %>
+                                <%= locals.totalSales %>
                             </p>
                             <hr>
                             <h5 class="card-title">Total Revenue</h5>
@@ -23,8 +22,7 @@
                     <div class="card text-bg-success mb-3 text-center" style="max-width: 18rem;">
                         <div class="card-body">
                             <p class="card-text fw-bold fs-2">
-                                <%= pending.length %>
-
+                                <%= locals.pending.length %>
                             </p>
                             <hr>
                             <h5 class="card-title">Pending Orders</h5>
@@ -35,7 +33,7 @@
                     <div class="card text-bg-primary mb-3 text-center" style="max-width: 18rem;">
                         <div class="card-body">
                             <p class="card-text fw-bold fs-2">
-                                <%= weeklyRevenue %>
+                                <%= locals.weeklyRevenue %>
                             </p>
                             <hr>
                             <h5 class="card-title">weekly Sales</h5>
@@ -43,16 +41,17 @@
                     </div>
                 </div>
             </div>
+
             <hr>
        
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">Data Table</div>
-                        <table class="table">
+                    <div class="card border-dark">
+                        <div class="card-header border-dark fw-bold fs-3 text-center">BUYER'S</div>
+                        <table class="table border-dark">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Sr. No.</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Amount</th>
@@ -61,7 +60,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% Order.forEach(function (order,index) {%>
+                                <% Order.forEach(function (order, index) {%>
                                     <tr>
                                         <th scope="row">
                                             <%= index + 1 %>

@@ -40,13 +40,13 @@
       height: 20vh;
       margin-bottom: 10px;
     }
-  
+
     .product-image {
       width: 100px;
       height: auto;
       margin-bottom: 10px;
     }
-  
+
     .quantity-controls {
       display: flex;
       align-items: center;
@@ -54,7 +54,7 @@
       margin-top: 10px;
       width: 30vw;
     }
-  
+
     .quantity-button {
       background-color: #007bff;
       color: #fff;
@@ -63,12 +63,12 @@
       margin-right: 5px;
       cursor: pointer;
     }
-  
+
     .quantity-display {
       font-weight: bold;
       margin: 0 5px;
     }
-  
+
     .delete-button {
       background-color: #dc3545;
       color: #fff;
@@ -76,15 +76,18 @@
       padding: 5px 10px;
       cursor: pointer;
     }
-    .cart-product-price{
+
+    .cart-product-price {
       font-weight: bold;
       margin: 0 !important;
     }
-    .checkout_btn{
+
+    .checkout_btn {
       width: 15vw !important;
     }
-     .checkout_btn a  {
-  color: #fff !important;
+
+    .checkout_btn a {
+      color: #fff !important;
       text-decoration: none !important;
     }
   </style>
@@ -111,7 +114,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Contact</a>
           </li>
-         
+
         </ul>
         <form class="d-flex" role="search">
           <% if (locals.user) { %>
@@ -128,34 +131,35 @@
   <!-- ######################################################### navbar ends ################################################################# -->
 
   <!-- ######################################################### cart item start ############################################################# -->
- <!-- cart.ejs -->
- <div class="card">
-  <div class="row">
-    <!-- Cart items -->
-    <div class="col-md-8 cart">
-      <div class="title">
-        <div class="row">
-          <div class="col">
-            <h4><b style="color:rgb(6, 86, 108)">Shopping Cart</b></h4>
+  <!-- cart.ejs -->
+  <div class="card">
+    <div class="row">
+      <!-- Cart items -->
+      <div class="col-md-8 cart">
+        <div class="title">
+          <div class="row">
+            <div class="col">
+              <h4><b style="color:rgb(6, 86, 108)">Shopping Cart</b></h4>
+            </div>
           </div>
         </div>
+        <div id="cartItems"></div> <!-- Ensure this div exists and has the id 'cartItems' -->
       </div>
-      <div id="cartItems"></div> <!-- Ensure this div exists and has the id 'cartItems' -->
-    </div>
-    <!-- Summary -->
-    <div class="summary">
-      <div>
-        <h5><b>Summary</b></h5>
+      <!-- Summary -->
+      <div class="summary">
+        <div>
+          <h5><b>Summary</b></h5>
+        </div>
+        <div class="row" style="border-top: 1px solid white; padding: 2vh 0;">
+          <div class="col">TOTAL PRICE</div>
+          <div class="col text-right">Rs <span id="total_price"></span></div>
+          <button class="btn btn-dark py-2 px-5 mb-5 rounded checkout_btn" style="background-color: rgb(2, 86, 116); "
+            onclick="openModal()">Proceed to Checkout</button>
+        </div>
+
       </div>
-      <div class="row" style="border-top: 1px solid white; padding: 2vh 0;">
-        <div class="col">TOTAL PRICE</div>
-        <div class="col text-right">Rs <span id="total_price"></span></div>
-        <button class="btn btn-dark py-2 px-5 mb-5 rounded checkout_btn" style="background-color: rgb(2, 86, 116); "onclick="openModal()">Proceed to Checkout</button>
-      </div>
-     
     </div>
   </div>
-</div>
 
 
   <!-- ######################################################### cart item ends ############################################################## -->
@@ -166,115 +170,119 @@
       <div class="cont">
 
         <form action="/placeOrder" method="post">
-    
-            <div class="row">
-    
-                <div class="col">
-    
-                    <h3 class="title">Billing address</h3>
-    
-                    <div class="inputBox">
-                        <span>Full name :</span>
-                        <input type="text" placeholder="Full Name" name="full_name">
 
-                    </div>
-                    
-                    <div class="inputBox">
-                        <span>Address :</span>
-                        <input type="text" placeholder="ROOM - STREET NAME" name="address">
-                    </div>
-                    <div class="inputBox">
-                        <span>City :</span>
-                        <input type="text" placeholder="CITY NAME" name="city">
-                    </div>
-    
-                    <div class="flex">
-                        <div class="inputBox">
-                            <span>State :</span>
-                            <input type="text" placeholder="STATE NAME" name="state">
-                        </div>
-                        <div class="inputBox">
-                            <span>Zip code :</span>
-                            <input type="text" placeholder="000 000" name="zipCode">
-                        </div>
-                    </div>
-    
+          <div class="row">
+
+            <div class="col">
+
+              <h3 class="title">Billing address</h3>
+
+              <div class="inputBox">
+                <span>Full name :</span>
+                <input type="text" placeholder="Full Name" name="full_name">
+
+              </div>
+              <div class="inputBox">
+                <span>Phone :</span>
+                <input type="text" placeholder="+91" name="phone">
+              </div>
+              <div class="inputBox">
+                <span>Address :</span>
+                <input type="text" placeholder="ROOM - STREET NAME" name="address">
+              </div>
+              <div class="inputBox">
+                <span>City :</span>
+                <input type="text" placeholder="CITY NAME" name="city">
+              </div>
+
+              <div class="flex">
+                <div class="inputBox">
+                  <span>State :</span>
+                  <input type="text" placeholder="STATE NAME" name="state">
                 </div>
-    
-                <div class="col">
-    
-                    <h3 class="title">Payment</h3>
-    
-                    <div class="inputBox">
-                      <span style="margin-bottom: 25px;">Payment accepted :</span>
-                      <div class="payment_method">
-                          <div class="one">
-                              <img src="/Images/upi.png" alt="">
-                              <h6>UPI</h6>
-                              <input type="radio" name="payment_method" id="upi" value="UPI">
-                          </div>
-                          <div class="one">
-                              <img src="/Images/neft.png" alt="">
-                              <h6>NEFT</h6>
-                              <input type="radio" name="payment_method" id="neft" value="NEFT">
-                          </div>
-                          <div class="one">
-                              <img src="/Images/cod.png" alt="">
-                              <h6>COD</h6>
-                              <input type="radio" name="payment_method" id="cod" value="COD">
-                          </div>
-                      </div>
-                  </div>
-                  <div id="upiScanner" style="display: none;">
-                      <img src="/Images/qrcode.png" alt="">
-                  </div>
-                  <div id="codDetails" style="display: none;"></div>
-                  <div id="neftDetails" style="display: none;">
-                    <!-- NEFT details -->
-                    <h6>NEFT Payment Details</h6>
-                    <div class="inputBox">
-                        <span>Beneficiary Name:</span>
-                        <input type="text" id="beneficiaryName" placeholder="Enter Beneficiary Name">
-                    </div>
-                    <div class="inputBox">
-                        <span>Beneficiary Account Number:</span>
-                        <input type="text" id="beneficiaryAccountNumber" placeholder="Enter Beneficiary Account Number">
-                    </div>
-                    <div class="inputBox">
-                        <span>Beneficiary Bank Name:</span>
-                        <input type="text" id="beneficiaryBankName" placeholder="Enter Beneficiary Bank Name">
-                    </div>
-                    <div class="inputBox">
-                        <span>Beneficiary Bank IFSC Code:</span>
-                        <input type="text" id="beneficiaryIFSCCode" placeholder="Enter IFSC Code">
-                    </div>
-                   
-               
+                <div class="inputBox">
+                  <span>Zip code :</span>
+                  <input type="text" placeholder="000 000" name="zipCode">
                 </div>
-                
-                  
-                  <div class="inputBox">
-                    <div class="inputBox" id="total_input">
-                      <span>Total Amount:</span>
-                      <input type="text" id="tPrice" name="t_Price" placeholder="Enter Amount" disabled >
-                  </div>
-                  
-                  <!-- Hidden input field to store the value -->
-                  <input type="hidden" id="hidden_tPrice" name="hidden_tPrice" >
-                </div>
-                    
-    
-                </div>
-        
+              </div>
+
             </div>
-    
-       
-            <button class="btn btn-dark py-2 px-5 mb-5 rounded pay_button" style="background-color: rgb(2, 86, 116); " onclick="payment()">Proceed to Checkout</button>
-    
+
+            <div class="col">
+
+              <h3 class="title">Payment</h3>
+
+              <div class="inputBox">
+                <span style="margin-bottom: 25px;">Payment accepted :</span>
+                <div class="payment_method">
+                  <div class="one">
+                    <img src="/Images/upi.png" alt="">
+                    <h6>UPI</h6>
+                    <input type="radio" name="payment_method" id="upi" value="UPI">
+                  </div>
+                  <div class="one">
+                    <img src="/Images/neft.png" alt="">
+                    <h6>NEFT</h6>
+                    <input type="radio" name="payment_method" id="neft" value="NEFT">
+                  </div>
+                  <div class="one">
+                    <img src="/Images/cod.png" alt="">
+                    <h6>COD</h6>
+                    <input type="radio" name="payment_method" id="cod" value="COD">
+                  </div>
+                </div>
+              </div>
+              <div id="upiScanner" style="display: none;">
+                <img src="/Images/qrcode.png" alt="">
+              </div>
+              <div id="codDetails" style="display: none;"></div>
+              <div id="neftDetails" style="display: none;">
+                <!-- NEFT details -->
+                <h6>NEFT Payment Details</h6>
+                <div class="inputBox">
+                  <span>Beneficiary Name:</span>
+                  <input type="text" id="beneficiaryName" placeholder="Enter Beneficiary Name">
+                </div>
+                <div class="inputBox">
+                  <span>Beneficiary Account Number:</span>
+                  <input type="text" id="beneficiaryAccountNumber" placeholder="Enter Beneficiary Account Number">
+                </div>
+                <div class="inputBox">
+                  <span>Beneficiary Bank Name:</span>
+                  <input type="text" id="beneficiaryBankName" placeholder="Enter Beneficiary Bank Name">
+                </div>
+                <div class="inputBox">
+                  <span>Beneficiary Bank IFSC Code:</span>
+                  <input type="text" id="beneficiaryIFSCCode" placeholder="Enter IFSC Code">
+                </div>
+
+
+              </div>
+
+
+              <div class="inputBox">
+                <div class="inputBox" id="total_input">
+                  <span>Total Amount:</span>
+                  <input type="text" id="tPrice" name="t_Price" placeholder="Enter Amount" disabled>
+                </div>
+
+                <!-- Hidden input field to store the value -->
+                <input type="hidden" id="hidden_tPrice" name="hidden_tPrice">
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+          <button class="btn btn-dark py-2 px-5 mb-5 rounded pay_button" style="background-color: rgb(2, 86, 116); "
+            onclick="payment()">Proceed to Checkout</button>
+
         </form>
-    
-       
-    </div>     
+
+
+      </div>
     </div>
   </div>
 
@@ -326,119 +334,119 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-<script type="module" src="../models/product.js"></script>
+  <script type="module" src="../models/product.js"></script>
 </body>
 <!-- Define a global JavaScript variable to store products data -->
 <script>
- // {Payemnt}
+  // {Payemnt}
 
 
- function payment() {
-  // Get the total price value
-  const tPrice = document.getElementById("tPrice").value;
+  function payment() {
+    // Get the total price value
+    const tPrice = document.getElementById("tPrice").value;
 
-  // Set the value of hidden input field hidden_tPrice
-  document.getElementById("hidden_tPrice").value = tPrice;
+    // Set the value of hidden input field hidden_tPrice
+    document.getElementById("hidden_tPrice").value = tPrice;
 
-  // Prevent default form submission behavior
+    // Prevent default form submission behavior
 
-  // Get all input fields
-  const fullName = document.querySelector('input[name="full_name"]').value;
-  const email = document.querySelector('input[name="email"]').value;
-  const address = document.querySelector('input[name="address"]').value;
-  const city = document.querySelector('input[name="city"]').value;
-  const state = document.querySelector('input[name="state"]').value;
-  const zipCode = document.querySelector('input[name="zipCode"]').value;
+    // Get all input fields
+    const fullName = document.querySelector('input[name="full_name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const address = document.querySelector('input[name="address"]').value;
+    const city = document.querySelector('input[name="city"]').value;
+    const state = document.querySelector('input[name="state"]').value;
+    const zipCode = document.querySelector('input[name="zipCode"]').value;
 
-  // Check if any field is empty
-  if (!fullName || !email || !address || !city || !state || !zipCode) {
+    // Check if any field is empty
+    if (!fullName || !email || !address || !city || !state || !zipCode) {
       alert("Please fill in all fields before proceeding to checkout.");
-  } else {
+    } else {
       // Submit the form
       document.getElementById("orderForm").submit();
+    }
   }
-}
 
   //For upi sccaner
 
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const upiRadio = document.getElementById("upi");
     const codRadio = document.getElementById("cod");
     const neftRadio = document.getElementById("neft"); // Added line
     const upiScannerDiv = document.getElementById("upiScanner");
     const codDetailsDiv = document.getElementById("codDetails");
     const neftDetailsDiv = document.getElementById("neftDetails"); // Added line
-  const total_input  = document.getElementById("total_input")
-    upiRadio.addEventListener("click", function() {
-        upiScannerDiv.style.display = "block";
-        codDetailsDiv.style.display = "none";
-        neftDetailsDiv.style.display = "none";
-        total_input.style.display = "block" // Hide NEFT details when UPI is selected
+    const total_input = document.getElementById("total_input")
+    upiRadio.addEventListener("click", function () {
+      upiScannerDiv.style.display = "block";
+      codDetailsDiv.style.display = "none";
+      neftDetailsDiv.style.display = "none";
+      total_input.style.display = "block" // Hide NEFT details when UPI is selected
     });
 
-    codRadio.addEventListener("click", function() {
-        upiScannerDiv.style.display = "none";
-        codDetailsDiv.style.display = "block";
-        neftDetailsDiv.style.display = "none";
-        total_input.style.display = "block" // Hide NEFT details when COD is selected
+    codRadio.addEventListener("click", function () {
+      upiScannerDiv.style.display = "none";
+      codDetailsDiv.style.display = "block";
+      neftDetailsDiv.style.display = "none";
+      total_input.style.display = "block" // Hide NEFT details when COD is selected
     });
 
-    neftRadio.addEventListener("click", function() {
-        upiScannerDiv.style.display = "none";
-        codDetailsDiv.style.display = "none";
-        neftDetailsDiv.style.display = "block";
-        total_input.style.display = "block"  // Show NEFT details when NEFT is selected
+    neftRadio.addEventListener("click", function () {
+      upiScannerDiv.style.display = "none";
+      codDetailsDiv.style.display = "none";
+      neftDetailsDiv.style.display = "block";
+      total_input.style.display = "block"  // Show NEFT details when NEFT is selected
     });
-});
+  });
 
 
   // Retrieve cart items from localStorage
   //modal js 
   var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.querySelector(".checkout_btn");
+  // Get the button that opens the modal
+  var btn = document.querySelector(".checkout_btn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+  // When the user clicks the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = "block";
+  }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
     modal.style.display = "none";
   }
-}
 
-// Function to open the modal
-// Populate the total price input field and disable user input
-// Populate the total price span with the total price
-// Function to open the modal
-// Function to open the modal
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Function to open the modal
+  // Populate the total price input field and disable user input
+  // Populate the total price span with the total price
+  // Function to open the modal
+  // Function to open the modal
 
 
-// Function to open the modal
-function openModal() {
-  // Display the modal
-  modal.style.display = "block";
-  
-  // Update the total price
-  updateTotalPrice();
-}
+  // Function to open the modal
+  function openModal() {
+    // Display the modal
+    modal.style.display = "block";
 
-// Function to close the modal
-function closeModal() {
-  modal.style.display = "none";
-}
+    // Update the total price
+    updateTotalPrice();
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    modal.style.display = "none";
+  }
 
   function initializeCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -461,8 +469,8 @@ function closeModal() {
   // Render each product in the cart
   function renderCart() {
 
-    cartItemsContainer.innerHTML = ''; 
-   
+    cartItemsContainer.innerHTML = '';
+
 
     cart.forEach(product => {
       // Create container for product details
@@ -523,7 +531,7 @@ function closeModal() {
       // Append product card to container
       cartItemsContainer.appendChild(productCard);
     });
-  updateTotalPrice()
+    updateTotalPrice()
   }
 
   // Function to decrease quantity
@@ -553,56 +561,56 @@ function closeModal() {
   function addToCart(product) {
     // Retrieve cart items from localStorage or initialize an empty array
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  
+
     // Add the product to the cart
     cart.push(product);
-  
+
     // Save the updated cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-  
+
     // Update cart count
     const cartCountElement = document.getElementById('cart-count');
     cartCountElement.textContent = cart.length; // Update the cart count
-  
+
     // Redirect to cart page (if needed)
     window.location.href = '/cart';
     updateTotalPrice();
-   
+
   }
   const tPriceInput = document.getElementById('tPrice');
   const hiddenTPriceInput = document.getElementById('hidden_tPrice');
 
   // Update the value of the hidden input field when the visible input field changes
   tPriceInput.addEventListener('input', () => {
-      hiddenTPriceInput.value = tPriceInput.value;
+    hiddenTPriceInput.value = tPriceInput.value;
   });
   const totalPriceElement = document.getElementById('total_price');
   // Function to update total price
   function updateTotalPrice() {
     let totalPrice = 0;
-  
+
     // Calculate the total price based on the quantity and price of each product
     cart.forEach(product => {
       totalPrice += product.amount * product.quantity;
     });
-  
+
     // Update the total price span element in the UI
     const totalPriceSpan = document.getElementById('total_price');
     totalPriceSpan.textContent = totalPrice.toFixed(2); // Assuming you want to display the total price with two decimal places
-  
+
     // Get the total price input field in the modal
     const totalPriceInput = document.getElementById('tPrice');
-  
+
     // Populate the total price input field with the total price
     totalPriceInput.value = totalPrice.toFixed(2); // Assuming you want to display the total price with two decimal places
-  
+
     // Disable the total price input field
-   // totalPriceInput.disabled = true;
+    // totalPriceInput.disabled = true;
   }
-  
+
 
   // Call updateTotalPrice() when the cart page is loaded
-  
+
 
   // Function to delete product from cart
   function deleteProduct(productId) {
@@ -615,9 +623,9 @@ function closeModal() {
   // Initial rendering
   renderCart();
   updateTotalPrice()
-  
-  window.addEventListener('load', updateTotalPrice);  
-  window.onload = function() {
+
+  window.addEventListener('load', updateTotalPrice);
+  window.onload = function () {
     initializeCart();
   };
 </script>

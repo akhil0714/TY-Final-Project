@@ -21,6 +21,7 @@ router.get("/logout", logout);
 router.post("/register", register);
 
 router.post("/createQuery", createQuery);
+
 router.post("/placeOrder", placeOrder);
 
 export default router;

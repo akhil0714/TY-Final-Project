@@ -25,7 +25,7 @@ export const login = async (req, res, next) => {
         if (!user) return res.render("login", { error1: "Register First" })
         let matchPassword = await bcrypt.compare(password, user.password)
         if (!matchPassword) return res.render("login", { error: "Invalid Email OR Password" })
-        if (user.role == "admin") return res.render("admin")
+        if (user.role == "admin") return res.redirect("/admin")
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET)
         res.status(200).cookie("token", token).redirect("/")
     }
@@ -77,6 +77,7 @@ export const placeOrder = async (req, res) => {
     try {
         const {
             full_name,
+            phone,
             address,
             city,
             state,
@@ -91,7 +92,7 @@ export const placeOrder = async (req, res) => {
         } = req.body;
 
         // Ensure all required fields are provided
-        const requiredFields = ['full_name', 'address', 'city', 'state', 'zipCode', 'payment_method'];
+        const requiredFields = ['full_name', 'phone', 'address', 'city', 'state', 'zipCode', 'payment_method'];
         for (const field of requiredFields) {
             if (!req.body[field]) {
                 throw new Error(`Missing required field: ${field}`);
@@ -117,6 +118,7 @@ export const placeOrder = async (req, res) => {
             billingAddress: {
                 fullName: full_name,
                 email: user.email,
+                phone,
                 address,
                 city,
                 state,

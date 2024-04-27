@@ -1,14 +1,15 @@
 <%- include("../partials/navbar.ejs") %>
 
     <main class="mt-5 pt-3">
-        <div class="fw-b fs-3 pt-4 container-fluid text-center">Add Product</div>
+        <div class="fw-bold fs-3 pt-5 pb-3 container-fluid text-center">ADD PRODUCTS</div>
         <div class="container m-40 w-50 text-start">
             <form action="/addproduct" method="post" enctype="multipart/form-data">
+                
                 <div class="mb-3">
-
                     <label class="form-label">Product Name</label>
                     <input type="text" class="form-control " style="border: 1px solid black;" name="name">
                 </div>
+
                 <div class="mb-3">
                     <label class="form-label">Amount</label>
                     <input type="text" class="form-control " style="border: 1px solid black;" name="amount">
@@ -19,11 +20,9 @@
                     <input type="file" class="form-control" name="coverimage" style="border: 1px solid black;" id="inputGroupFile02">
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <input type="text" class="form-control " style="border: 1px solid black;" name="description">
+                <div class="button text-center pt-3">
+                    <button type="submit" class="btn btn-success px-5">Submit</button>
                 </div>
-                <button type="submit" class="btn btn-success">Submit</button>
             </form>
         </div>
     </main>

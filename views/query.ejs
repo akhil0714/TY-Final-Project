@@ -1,14 +1,17 @@
 <%- include("../partials/navbar.ejs") %>
 
-<main class="mt-5 pt-4">
+
+
+<main class="mt-5 pt-5">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 fw-bold fs-3 mt-2 text-center">Dashboard</div>
-        </div>
-        <table class="table text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card border-dark text-center">
+          <div class="card-header border-dark fw-bold fs-2">MANAGE QUERIES</div>
+          <table class="table border-dark">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>Sr. No.</th>
                     <th>Name</th>
                     <th>Number</th>
                     <th>Message</th>
@@ -31,14 +34,17 @@
                             <%= queries.query %>
                         </td>
                         <td>
-                            <a href="/query/delete/<%= queries._id %>" class="btn btn-danger">DELETE</a>
+                            <a href="/query/delete/<%= queries._id %>" class="btn btn-primary">Mark as Read</a>
                         </td>
                     </tr>
                     <% }) %>
             </tbody>
           </table>
+        </div>
+      </div>
     </div>
-</main>
+    </div>
+    </main>
 
     <%- include("../partials/script.ejs") %>
 

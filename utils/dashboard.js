@@ -18,7 +18,7 @@ export const getTotalSales = async () => {
 
 export const pendingOrders = async () =>{
     try {
-        const orders = await Order.find({status:"pending"});
+        const orders = await Order.find({status: "pending"});
         return orders;
     } catch (error) {
         console.error("Error fetching pending order:", error);

@@ -15,6 +15,7 @@ export const app = express();
 config({
     path:"./data/config.env"
 });
+
 app.use(bodyParser.json());
 
 app.use(cookieparser());

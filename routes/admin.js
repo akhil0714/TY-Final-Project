@@ -23,6 +23,7 @@ router.get("/product/delete/:id", deleteproduct)
 router.get("/getquery", getquery)
 
 router.get("/query/delete/:id", deletequery)
+
 router.get("/placeorder" , getOrder)
 
 router.put('/orders/:orderId', updateOrderStatus);

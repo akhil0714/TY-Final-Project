@@ -11,11 +11,10 @@ export const adminPage = async (req, res)=>{
     const Order = await shippedOrder();
     const pending = await pendingOrders();
     const totalSales = await getTotalSales();
-    res.render("admin", {totalSales , pending, weeklyRevenue,Order});
+    res.render("admin", {totalSales , pending, weeklyRevenue, Order});
 }
 
 // manage user
-
 export const manageuser = async (req, res) => {
     try {
         let user = await User.find({ role: "user" });
