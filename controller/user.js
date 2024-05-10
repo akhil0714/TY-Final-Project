@@ -110,7 +110,6 @@ export const placeOrder = async (req, res) => {
         const {token} = req.cookies;
       
         let decoded = await jwt.verify(token, process.env.JWT_SECRET);
-        console.log(decoded._id);
         
         let user = await User.findById(decoded._id);
         // Create a new order with the provided data
@@ -143,6 +142,7 @@ export const placeOrder = async (req, res) => {
 
         // Send the saved order data in the response
         // res.status(201).json({ success: true, order: savedOrder });
+        
         res.redirect("/");
         // window.location.href = "/";
     } catch (error) {

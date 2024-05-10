@@ -153,7 +153,7 @@
         <div class="row" style="border-top: 1px solid white; padding: 2vh 0;">
           <div class="col">TOTAL PRICE</div>
           <div class="col text-right">Rs <span id="total_price"></span></div>
-          <button class="btn btn-dark py-2 px-5 mb-5 rounded checkout_btn" style="background-color: rgb(2, 86, 116); "
+          <button class="btn btn-dark py-2 px-5 mb-5 rounded checkout_btn" style="background-color: rgb(2, 86, 116);"
             onclick="openModal()">Proceed to Checkout</button>
         </div>
 
@@ -175,7 +175,7 @@
 
             <div class="col">
 
-              <h3 class="title">Billing address</h3>
+              <h3 class="title">Shipping address</h3>
 
               <div class="inputBox">
                 <span>Full name :</span>
@@ -277,7 +277,7 @@
 
 
           <button class="btn btn-dark py-2 px-5 mb-5 rounded pay_button" style="background-color: rgb(2, 86, 116); "
-            onclick="payment()">Proceed to Checkout</button>
+            onclick="payment()">Confirm Order</button>
 
         </form>
 
@@ -339,7 +339,6 @@
 <!-- Define a global JavaScript variable to store products data -->
 <script>
   // {Payemnt}
-
 
   function payment() {
     // Get the total price value
@@ -531,7 +530,8 @@
       // Append product card to container
       cartItemsContainer.appendChild(productCard);
     });
-    updateTotalPrice()
+    updateTotalPrice();
+
   }
 
   // Function to decrease quantity
@@ -628,6 +628,19 @@
   window.onload = function () {
     initializeCart();
   };
+
+  document.addEventListener("DOMContentLoaded", function () {
+        const confirmOrderButton = document.querySelector(".pay_button");
+
+        if (confirmOrderButton) {
+            confirmOrderButton.addEventListener("click", function () {
+                alert("YOUR ORDER PLACED SUCCESSFULLY");
+            });
+        } else {
+            console.log("Confirm Order button not found");
+        }
+    });
+
 </script>
 
 </html>
