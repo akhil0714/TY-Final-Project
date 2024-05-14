@@ -3,12 +3,12 @@ import { Query } from "../models/query.js";
 import { User } from "../models/user.js"
 import { Order } from '../models/order.js';
 import fs from "fs";
-import { getTotalSales, getWeeklyRevenue, pendingOrders, shippedOrder } from "../utils/dashboard.js";
+import { deliveredOrder, getTotalSales, getWeeklyRevenue, pendingOrders } from "../utils/dashboard.js";
 
 //admin page
 export const adminPage = async (req, res)=>{
     const weeklyRevenue = await getWeeklyRevenue();
-    const Order = await shippedOrder();
+    const Order = await deliveredOrder();
     const pending = await pendingOrders();
     const totalSales = await getTotalSales();
     res.render("admin", {totalSales , pending, weeklyRevenue, Order});

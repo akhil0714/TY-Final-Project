@@ -48,7 +48,7 @@
   <main class="mt-5 pt-4">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12 fs-2 mt-2 pt-3 pb-2 text-center">ORDER DETAILS</div>
+        <div class="col-md-12 fs-2 mt-2 pt-3 pb-2 text-center">CUSTOMER ORDER DETAILS</div>
       </div>
       <table class="table text-center">
         <thead>
@@ -59,8 +59,8 @@
             <th scope="col">City</th>
             <th scope="col">Payment Method</th>
             <th scope="col">Amount Rs</th>
-            <th scope="col">Status</th>
             <th scope="col">Order Place At</th>
+            <th scope="col">Status</th>
             <th scope="col">Edit Order Status</th>
             <!-- <th scope="col">Edit</th> -->
           </tr>
@@ -86,11 +86,11 @@
               <td>
                 <%= order.totalAmount %>
               </td>
-              <td class="orderstatus" id="status<%= index %>">
-                <%= order.status %>
-              </td>
               <td>
                 <%= order.createdAt %>
+              </td>
+              <td class="orderstatus" id="status<%= index %>">
+                <%= order.status %>
               </td>
               <td>
                 <form method="put" id="updateForm_<%= order._id %>" data-order-id="<%= order._id %>"
@@ -99,7 +99,7 @@
                   <select name="status" id="statusSelect_<%= index %>">
                     <option value="pending" <%=order.status==='pending' ? 'selected' : '' %>>Pending</option>
                     <option value="dispatched" <%=order.status==='dispatched' ? 'selected' : '' %>>Dispatched</option>
-                    <option value="shipped" <%=order.status==='shipped' ? 'selected' : '' %>>Shipped</option>
+                    <option value="delivered" <%=order.status==='delivered' ? 'selected' : '' %>>Delivered</option>
                   </select>
                   <button type="submit" class="btn btn-primary btn-sm m-2">Update Status</button>
                 </form>

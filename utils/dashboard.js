@@ -96,9 +96,9 @@ export const getWeeklyRevenue = async ()=> {
 
 
 
-export const shippedOrder = async () => {
+export const deliveredOrder = async () => {
     try {
-        const orders = await Order.find({ status: "shipped" });
+        const orders = await Order.find({ status: "delivered" });
         return orders;
     } catch (error) {
         console.error("Error fetching pending order:", error);

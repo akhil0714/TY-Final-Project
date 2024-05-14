@@ -629,17 +629,23 @@
     initializeCart();
   };
 
-  document.addEventListener("DOMContentLoaded", function () {
-        const confirmOrderButton = document.querySelector(".pay_button");
+  // Function to clear localStorage
+  function clearLocalStorage() {
+    localStorage.removeItem('cart');
+  }
 
-        if (confirmOrderButton) {
-            confirmOrderButton.addEventListener("click", function () {
-                alert("YOUR ORDER PLACED SUCCESSFULLY");
-            });
-        } else {
-            console.log("Confirm Order button not found");
-        }
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    const confirmOrderButton = document.querySelector(".pay_button");
+
+    if (confirmOrderButton) {
+      confirmOrderButton.addEventListener("click", function () {
+        alert("YOUR ORDER PLACED SUCCESSFULLY");
+        clearLocalStorage();
+      });
+    } else {
+      console.log("Confirm Order button not found");
+    }
+  });
 
 </script>
 
