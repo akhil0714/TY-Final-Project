@@ -323,7 +323,6 @@
     updateTotalPrice()
   }
 
-
   // Function to decrease quantity
   function decreaseQuantity(productId) {
     const index = cart.findIndex(product => product._id === productId);
@@ -399,8 +398,7 @@
 
     cartCountElement.textContent = cart.length; // Update the cart count
   }
-
-
+  
   window.addEventListener('load', updateCartCount);
 </script>
 

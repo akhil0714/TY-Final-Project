@@ -87,15 +87,6 @@ export const getWeeklyRevenue = async ()=> {
     }
 }
 
-// Usage example
-// getWeeklyRevenue().then(weeklyRevenue => {
-//     console.log("Weekly revenue:", weeklyRevenue);
-// }).catch(error => {
-//     console.error("Error:", error);
-// });
-
-
-
 export const deliveredOrder = async () => {
     try {
         const orders = await Order.find({ status: "delivered" });

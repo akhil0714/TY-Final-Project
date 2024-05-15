@@ -7,7 +7,7 @@ import { isAuthenticated } from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/cart", isAuthenticated,(req, res)=>{
-    res.render("cart"); // Render cart.ejs
+    res.render("cart");
 });
 
 router.get("/login", (req, res)=>{

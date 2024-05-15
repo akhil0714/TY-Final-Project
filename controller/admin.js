@@ -43,30 +43,20 @@ export const deleteuser = async (req, res) => {
 
 export const addProduct = async (req, res) => {
     try {
-        // Destructure product data from request body
         const { name, amount, description } = req.body;
-
-        // Check if an image was uploaded
         let image = '';
         if (req.file) {
-            // If an image was uploaded, set the image path
             image = `/uploads/${req.file.filename}`;
         }
-
-        // Create the product in the database
         await Product.create({
             name, 
             amount,
             image,
             description,
         });
-
-        // Redirect to the add product page
         res.redirect("/addproduct");
     } catch (error) {
-        // Log the error for debugging
         console.error("Error adding product:", error);
-        // Send a 500 Internal Server Error response
         res.status(500).json({
             success: false,
             message: "Internal Server Error"
@@ -139,7 +129,7 @@ export const deletequery = async (req, res)=> {
 export const getOrder = async (req, res) => {
     try {
         // Fetch orders from the database
-        const orders = await Order.find().exec();
+        const orders = await Order.find();
 
         // Render the placeOrder view and pass the orders data to it
         res.render("placeOrder", { orders });
@@ -151,13 +141,7 @@ export const getOrder = async (req, res) => {
 export const updateOrderStatus = async (req, res) => {
     const { orderId } = req.params;
     const { status } = req.body;
-  
 
-    // if (!status) {
-    //   console.log('Status is undefined or null');
-    //   return res.status(400).json({ error: 'Status is required' });
-    // }
-  
     try {
       // Find the order by ID and update its status
       const updatedOrder = await Order.findByIdAndUpdate(orderId, { status }, { new: true });
